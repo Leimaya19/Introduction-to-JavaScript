@@ -1,13 +1,20 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
+let votingAge = 18;
 
-
-
+if(votingAge >= 18){
+  console.log('true');
+}
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
 
+var y = 'monkey'
+var x = 'carrot'
 
+if (y = "monkey") {
+    x = "banana"
+}
 
 
 
@@ -18,23 +25,43 @@
 
 
 //Task d: Write a function to multiply a*b 
+function multiply(a,b){
+  console.log(a*b);
+}
 
 
-
+multiply(2,4);
 
 
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
 
+function dogAge(age){
+  var dogYears = 7*age;
+  console.log("I would be " + dogYears + " years old if I was a dog!");
+}
 
 
-
-
+dogAge(33);
 /************************************************************** Task 3 **************************************************************/
 //Dog feeder 
 //takes weight in pounds and age in years (note if the dog is a puppy the age will be a decimal) and returns the number of pounds of raw food to feed in a day.
-
+function dogFeeder(dogweight,bodyWeight){
+  if (dogweight <=1 && dogweight <= 15) {
+    return dogweight * 0.5
+  }
+  else if (dogweight >=1 && dogweight <=10) {
+    return dogweight * 0.4
+  }
+  else if (dogweight <=1 && dogweight <=15) {
+    return dogweight * 0.3
+  }
+  else if (dogweight >15) {
+    return dogweight * 0.2
+  }
+}
+console.log(dogFeeder(1, 15));
 //feeding requirements
 // adult dogs at least 1 year 
 // up to 5 lbs - 5% of their body weight
@@ -60,20 +87,84 @@
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
+  //the users choice
+
+  const getUserChoice = userInput =>{
+    userInput = userInput.toLowerCase();
+    if (userInput === 'rock' || userInput==='paper' || userInput ==='scissors') {
+      return userInput;
+    } else {
+      console.log('not a valid choice');
+    }
+  };
+
+  function getComputerChoice() {
+    switch(Math.floor(Math.random()*3)) {
+      case 0:
+        return 'rock';
+        break;
+      case 1:
+        return 'scissors';
+        break;
+      case 2:
+        return 'paper';
+        break;
+      };
+  }
   
+  function determineWinner(userChoice,computerChoice) {
+    if (userChoice === computerChoice) {
+      return 'It\'s a tie!';
+    } else if (userChoice === 'rock') {
+      if (computerChoice === 'paper') {
+        return 'Computer wins!';
+      } else {
+        return 'You win!';
+      }
+    } else if (userChoice === 'paper'){
+      if (compterChoice === 'scissors') {
+        return 'Computer wins!';
+      }else {
+        return 'You win!';
+      }
+    } else if (userChoice === 'scissors') {
+      if (computerChoice === 'rock') {
+        return 'Computer wins!';
+      } else {
+        return 'You win!';
+      }
+    } else if (userChoice === 'bomb') {
+      return 'You win!';
+    }
+  };
   
+  function playGame() {
+    var userChoice = getUserChoice('rock');
+    var computerChoice = getComputerChoice()
+    console.log(`you threw ${userChoice}`);
+    console.log(`computer threw ${computerChoice}`);
+    console.log(determineWinner(userChoice,computerChoice));
+  };
+  
+  playGame();
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
+var KM = 4
 
+let miles = KM * 0.62137;
+console.log(miles);
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
   
+var ft = 4
 
+let CM = ft / 0.032808;
+console.log(CM);
 
 
 
@@ -95,9 +186,26 @@
 //60s should be D 
 //and anything below 60 should be F
   
+function score(points){
 
-  
-  
+
+  if(points>=90){
+      console.log(" Your grade is A");
+  }else if (points >=80 && points <= 89){
+      console.log("Your grade is B");
+  } else if (points>=70 && points <=79){
+      console.log("Your grade is C");
+  } else if( points>=60 && points <=69){
+      console.log("Your grade is D");
+  } else if(points<=59){
+      console.log("Your grade is F, you need to study more");
+  }
+
+}
+
+
+console.log(score(70));
+
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
